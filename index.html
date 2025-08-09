@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StarStack — Небольшой сайт</title>
+  <meta name="description" content="Минимальный статичный сайт для GitHub Pages" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#">StarStack</a>
+    <nav id="nav" class="nav" aria-label="Главная навигация">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Открыть меню">≡</button>
+      <ul id="navMenu" class="nav-menu">
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#about">О сайте</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" title="Переключить тему" aria-pressed="false">🌓</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <h1>Привет! Это StarStack</h1>
+      <p>Минимальный сайт, который легко разместить на GitHub Pages.</p>
+      <a class="cta" href="#projects">Смотреть проекты</a>
+    </section>
+
+    <section id="about" class="section">
+      <h2>О сайте</h2>
+      <p>Этот шаблон — чистый HTML/CSS/JS без сборки. Его можно быстро развернуть и дополнять по мере необходимости.</p>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Проекты</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Проект 1</h3>
+          <p>Короткое описание проекта.</p>
+          <a href="#" class="link">Подробнее →</a>
+        </article>
+        <article class="card">
+          <h3>Проект 2</h3>
+          <p>Короткое описание проекта.</p>
+          <a href="#" class="link">Подробнее →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Контакты</h2>
+      <p>Связаться можно по email: <a href="mailto:you@example.com">you@example.com</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> StarStack. Сделано с любовью.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
