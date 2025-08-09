@@ -59,9 +59,11 @@ body {
 .nav-menu a { color: var(--text); text-decoration: none; padding: 6px 10px; border-radius: 8px; }
 .nav-menu a:hover { background: var(--card); }
 
+.header-actions { display: flex; align-items: center; gap: 8px; }
 .nav-toggle { display: none; border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 10px; }
 .theme-toggle { border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 10px; }
-.theme-toggle:hover, .nav-toggle:hover { filter: brightness(1.02); }
+.lang-select { border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 10px; }
+.theme-toggle:hover, .nav-toggle:hover, .lang-select:hover { filter: brightness(1.02); }
 
 @media (max-width: 760px) {
   .nav-toggle { display: inline-flex; }
