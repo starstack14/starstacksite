@@ -43,10 +43,19 @@
     <section id="projects" class="section">
       <h2 data-i18n="projects.title">Проекты</h2>
       <div class="cards">
-        <article class="card">
-          <h3 data-i18n="projects.items.0.title">Проект 1</h3>
-          <p data-i18n="projects.items.0.desc">Короткое описание проекта.</p>
-          <a href="#" class="link" data-i18n="projects.items.0.more">Подробнее →</a>
+        <article class="card" id="project-mlf">
+          <h3>
+            <a id="mlfTitle" href="https://github.com/starstack14/Multi-LauncherFactorio" target="_blank" rel="noopener">Multi-Launcher Factorio</a>
+          </h3>
+          <p id="mlfDesc" data-i18n="projects.mlf.desc">Лаунчер для Factorio. Описание подгружается из GitHub.</p>
+          <div class="meta" style="display:flex;gap:12px;color:var(--muted);">
+            <span id="mlfStars">★ 0</span>
+            <span id="mlfRelease"><span data-i18n="projects.mlf.latest">Последний релиз:</span> —</span>
+          </div>
+          <div class="actions" style="margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a class="link" id="mlfGithub" href="https://github.com/starstack14/Multi-LauncherFactorio" target="_blank" rel="noopener" data-i18n="projects.actions.github">Открыть на GitHub →</a>
+            <a class="link" id="mlfDownload" href="https://github.com/starstack14/Multi-LauncherFactorio/releases/latest" target="_blank" rel="noopener" data-i18n="projects.actions.download">Скачать последний релиз →</a>
+          </div>
         </article>
         <article class="card">
           <h3 data-i18n="projects.items.1.title">Проект 2</h3>

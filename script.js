@@ -5,10 +5,8 @@
   const navMenu = document.getElementById('navMenu');
   const year = document.getElementById('year');
 
-  // Текущий год в подвале
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Инициализация темы
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark' || savedTheme === 'light') {
     root.setAttribute('data-theme', savedTheme);
@@ -18,7 +16,6 @@
     if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
   }
 
-  // Переключение темы
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       const isDark = root.getAttribute('data-theme') === 'dark';
@@ -29,7 +26,6 @@
     });
   }
 
-  // Мобильное меню
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
       const open = navMenu.classList.toggle('open');
@@ -45,7 +41,6 @@
     });
   }
 
-  // Лёгкая i18n
   const dictionaries = {
     ru: {
       'meta.title': 'StarStack — Небольшой сайт',
@@ -61,12 +56,14 @@
       'about.title': 'О сайте',
       'about.body': 'Этот шаблон — чистый HTML/CSS/JS без сборки. Его можно быстро развернуть и дополнять по мере необходимости.',
       'projects.title': 'Проекты',
-      'projects.items.0.title': 'Проект 1',
-      'projects.items.0.desc': 'Короткое описание проекта.',
-      'projects.items.0.more': 'Подробнее →',
       'projects.items.1.title': 'Проект 2',
       'projects.items.1.desc': 'Короткое описание проекта.',
       'projects.items.1.more': 'Подробнее →',
+      'projects.mlf.desc': 'Лаунчер для Factorio. Описание подгружается из GitHub.',
+      'projects.mlf.latest': 'Последний релиз:',
+      'projects.mlf.no_release': 'Релизов нет',
+      'projects.actions.github': 'Открыть на GitHub →',
+      'projects.actions.download': 'Скачать последний релиз →',
       'contact.title': 'Контакты',
       'contact.body': 'Чтобы связаться, используйте форму обращения в репозитории. Email не публикуется.',
       'contact.cta': 'Открыть форму обращения →',
@@ -89,12 +86,14 @@
       'about.title': 'About',
       'about.body': 'This template is plain HTML/CSS/JS without a build step. Deploy fast and extend as you go.',
       'projects.title': 'Projects',
-      'projects.items.0.title': 'Project 1',
-      'projects.items.0.desc': 'Short project description.',
-      'projects.items.0.more': 'Learn more →',
       'projects.items.1.title': 'Project 2',
       'projects.items.1.desc': 'Short project description.',
       'projects.items.1.more': 'Learn more →',
+      'projects.mlf.desc': 'Launcher for Factorio. Description is loaded from GitHub.',
+      'projects.mlf.latest': 'Latest release:',
+      'projects.mlf.no_release': 'No releases',
+      'projects.actions.github': 'Open on GitHub →',
+      'projects.actions.download': 'Download latest →',
       'contact.title': 'Contact',
       'contact.body': 'Use the repository issue form to get in touch. Email is not published.',
       'contact.cta': 'Open contact form →',
@@ -105,43 +104,40 @@
     },
   };
 
-  function getLangButtons() {
-    return {
-      ru: document.getElementById('langRu'),
-      en: document.getElementById('langEn'),
-    };
-  }
-
+  let currentLang = 'en';
   function setPressed(lang) {
-    const { ru, en } = getLangButtons();
+    const ru = document.getElementById('langRu');
+    const en = document.getElementById('langEn');
     if (ru && en) {
       ru.setAttribute('aria-pressed', String(lang === 'ru'));
       en.setAttribute('aria-pressed', String(lang === 'en'));
     }
   }
+  function t(key) {
+    return (dictionaries[currentLang] && dictionaries[currentLang][key]) || dictionaries.en[key] || key;
+  }
 
   function applyLanguage(lang) {
-    const dict = dictionaries[lang] || dictionaries.en;
+    currentLang = ['ru', 'en'].includes(lang) ? lang : 'en';
+    const dict = dictionaries[currentLang];
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       const value = dict[key];
-      if (typeof value === 'string') {
-        el.textContent = value;
-      }
+      if (typeof value === 'string') el.textContent = value;
     });
-    document.documentElement.lang = lang;
+    document.documentElement.lang = currentLang;
 
     const contactLink = document.getElementById('contactLink');
     if (contactLink) {
       const base = 'https://github.com/starstack14/starstacksite/issues/new?labels=contact&title=';
-      if (lang === 'en') {
+      if (currentLang === 'en') {
         contactLink.href = base + encodeURIComponent('Contact') + '&body=' + encodeURIComponent('Describe your question and a contact for reply.');
       } else {
         contactLink.href = base + encodeURIComponent('Обращение') + '&body=' + encodeURIComponent('Опишите ваш вопрос и контакт для обратной связи.');
       }
     }
 
-    setPressed(lang);
+    setPressed(currentLang);
   }
 
   function initLanguage() {
@@ -150,10 +146,44 @@
     if (!['ru', 'en'].includes(initial)) initial = 'en';
     applyLanguage(initial);
 
-    const { ru, en } = getLangButtons();
+    const ru = document.getElementById('langRu');
+    const en = document.getElementById('langEn');
     if (ru) ru.addEventListener('click', () => { localStorage.setItem('lang', 'ru'); applyLanguage('ru'); });
     if (en) en.addEventListener('click', () => { localStorage.setItem('lang', 'en'); applyLanguage('en'); });
   }
 
+  async function initRepoInfo() {
+    const titleEl = document.getElementById('mlfTitle');
+    const descEl = document.getElementById('mlfDesc');
+    const starsEl = document.getElementById('mlfStars');
+    const releaseEl = document.getElementById('mlfRelease');
+    const downloadEl = document.getElementById('mlfDownload');
+    const repo = 'starstack14/Multi-LauncherFactorio';
+
+    try {
+      const repoRes = await fetch(`https://api.github.com/repos/${repo}`);
+      if (repoRes.ok) {
+        const repoData = await repoRes.json();
+        if (descEl && repoData.description) descEl.textContent = repoData.description;
+        if (starsEl && typeof repoData.stargazers_count === 'number') starsEl.textContent = `★ ${repoData.stargazers_count}`;
+        if (titleEl && repoData.html_url) titleEl.href = repoData.html_url;
+      }
+    } catch {}
+
+    try {
+      const relRes = await fetch(`https://api.github.com/repos/${repo}/releases/latest`);
+      if (relRes.ok) {
+        const rel = await relRes.json();
+        if (releaseEl) releaseEl.textContent = `${t('projects.mlf.latest')} ${rel.tag_name || rel.name || ''}`.trim();
+        if (downloadEl && rel.html_url) downloadEl.href = rel.html_url;
+      } else {
+        if (releaseEl) releaseEl.textContent = t('projects.mlf.no_release');
+      }
+    } catch {
+      if (releaseEl) releaseEl.textContent = t('projects.mlf.no_release');
+    }
+  }
+
   initLanguage();
+  initRepoInfo();
 })();
