@@ -1,43 +1,21 @@
-# StarStack — статичный сайт для GitHub Pages
+# MIT License
 
-Минимальный шаблон на чистых HTML/CSS/JS. Подходит для быстрого деплоя на GitHub Pages.
+Copyright (c) 2025 starstack14
 
-## Структура
-- `index.html` — главная страница
-- `styles.css` — стили (поддержка светлой/тёмной темы)
-- `script.js` — переключатель темы и мобильное меню
-- `404.html` — кастомная страница 404 (рекомендуется для Pages)
-- `.nojekyll` — отключает обработку Jekyll
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Локальный запуск
-Дважды кликните `index.html` или откройте через простой http-сервер.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## Публикация на GitHub Pages
-1) Создайте репозиторий на GitHub (например, `starstacksite`).
-2) Инициализируйте git и сделайте первый коммит:
-```powershell
-git init
-git add .
-git commit -m "Initial commit: StarStack static site"
-```
-3) Добавьте удалённый репозиторий и запушьте:
-```powershell
-git branch -M main
-git remote add origin https://github.com/<ВАШ_АККАУНТ>/<ВАШ_РЕПОЗИТОРИЙ>.git
-git push -u origin main
-```
-4) В настройках репозитория включите Pages: Settings → Pages → Build and deployment → Source: `Deploy from a branch`, Branch: `main` и `/ (root)`.
-5) Откройте выданный URL. Обычно это `https://<ВАШ_АККАУНТ>.github.io/<ВАШ_РЕПОЗИТОРИЙ>/`.
-
-### Контакты без раскрытия email
-- В `index.html` ссылка ведёт на форму обращения через GitHub Issues вашего репозитория (`Issues → New`). Email при этом не публикуется.
-- По желанию можно подключить приватную форму через Formspree:
-  1. Зарегистрируйтесь на `https://formspree.io` и создайте форму.
-  2. Замените ссылку в блоке "Контакты" на `<form action="https://formspree.io/f/<ID>" method="POST">...`.
-  3. Добавьте поле `email` и включите reCAPTCHA/спам-фильтры.
-
-### Вариант «пользовательский сайт» (один на аккаунт)
-Создайте репозиторий с именем `<username>.github.io` и деплойте в `main`. Урл будет `https://<username>.github.io/`.
-
----
-Удачи! Вы можете менять содержимое в `index.html`, добавлять разделы и картинки, новые страницы и т.п.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

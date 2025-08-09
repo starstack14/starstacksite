@@ -63,7 +63,10 @@ body {
 .nav-toggle { display: none; border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 10px; }
 .theme-toggle { border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 10px; }
 .lang-select { border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 10px; }
-.theme-toggle:hover, .nav-toggle:hover, .lang-select:hover { filter: brightness(1.02); }
+.lang-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--card); }
+.lang-btn { padding: 6px 10px; background: transparent; color: var(--text); border: 0; cursor: pointer; }
+.lang-btn[aria-pressed="true"] { background: var(--primary); color: var(--primary-contrast); }
+.theme-toggle:hover, .nav-toggle:hover, .lang-select:hover, .lang-btn:hover { filter: brightness(1.02); }
 
 @media (max-width: 760px) {
   .nav-toggle { display: inline-flex; }

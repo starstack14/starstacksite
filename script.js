@@ -105,27 +105,32 @@
     },
   };
 
-  function getLangSelect() {
-    return document.getElementById('langSelect') || document.getElementById('langSelect404');
+  function getLangButtons() {
+    return {
+      ru: document.getElementById('langRu'),
+      en: document.getElementById('langEn'),
+    };
+  }
+
+  function setPressed(lang) {
+    const { ru, en } = getLangButtons();
+    if (ru && en) {
+      ru.setAttribute('aria-pressed', String(lang === 'ru'));
+      en.setAttribute('aria-pressed', String(lang === 'en'));
+    }
   }
 
   function applyLanguage(lang) {
-    const dict = dictionaries[lang] || dictionaries.ru;
+    const dict = dictionaries[lang] || dictionaries.en;
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       const value = dict[key];
       if (typeof value === 'string') {
-        if (el.tagName === 'TITLE' || el.tagName === 'META') {
-          el.textContent = value;
-        } else {
-          el.textContent = value;
-        }
+        el.textContent = value;
       }
     });
-    // HTML lang attr
     document.documentElement.lang = lang;
 
-    // Подменяем ссылку на Issues, чтобы текст тела был на нужном языке
     const contactLink = document.getElementById('contactLink');
     if (contactLink) {
       const base = 'https://github.com/starstack14/starstacksite/issues/new?labels=contact&title=';
@@ -135,23 +140,19 @@
         contactLink.href = base + encodeURIComponent('Обращение') + '&body=' + encodeURIComponent('Опишите ваш вопрос и контакт для обратной связи.');
       }
     }
+
+    setPressed(lang);
   }
 
   function initLanguage() {
-    const select = getLangSelect();
     const saved = localStorage.getItem('lang');
-    let initial = saved || (navigator.language || 'ru').slice(0, 2);
-    if (!['ru', 'en'].includes(initial)) initial = 'ru';
-    if (select) select.value = initial;
+    let initial = saved || 'en';
+    if (!['ru', 'en'].includes(initial)) initial = 'en';
     applyLanguage(initial);
 
-    if (select) {
-      select.addEventListener('change', () => {
-        const lang = select.value;
-        localStorage.setItem('lang', lang);
-        applyLanguage(lang);
-      });
-    }
+    const { ru, en } = getLangButtons();
+    if (ru) ru.addEventListener('click', () => { localStorage.setItem('lang', 'ru'); applyLanguage('ru'); });
+    if (en) en.addEventListener('click', () => { localStorage.setItem('lang', 'en'); applyLanguage('en'); });
   }
 
   initLanguage();
