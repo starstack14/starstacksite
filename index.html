@@ -20,10 +20,10 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <select id="langSelect" class="lang-select" aria-label="Language">
-        <option value="ru">RU</option>
-        <option value="en">EN</option>
-      </select>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button id="langRu" class="lang-btn" aria-pressed="true" type="button">RU</button>
+        <button id="langEn" class="lang-btn" aria-pressed="false" type="button">EN</button>
+      </div>
       <button id="themeToggle" class="theme-toggle" title="Переключить тему" aria-pressed="false">🌓</button>
     </div>
   </header>
