@@ -29,6 +29,13 @@ git push -u origin main
 4) В настройках репозитория включите Pages: Settings → Pages → Build and deployment → Source: `Deploy from a branch`, Branch: `main` и `/ (root)`.
 5) Откройте выданный URL. Обычно это `https://<ВАШ_АККАУНТ>.github.io/<ВАШ_РЕПОЗИТОРИЙ>/`.
 
+### Контакты без раскрытия email
+- В `index.html` ссылка ведёт на форму обращения через GitHub Issues вашего репозитория (`Issues → New`). Email при этом не публикуется.
+- По желанию можно подключить приватную форму через Formspree:
+  1. Зарегистрируйтесь на `https://formspree.io` и создайте форму.
+  2. Замените ссылку в блоке "Контакты" на `<form action="https://formspree.io/f/<ID>" method="POST">...`.
+  3. Добавьте поле `email` и включите reCAPTCHA/спам-фильтры.
+
 ### Вариант «пользовательский сайт» (один на аккаунт)
 Создайте репозиторий с именем `<username>.github.io` и деплойте в `main`. Урл будет `https://<username>.github.io/`.
 
