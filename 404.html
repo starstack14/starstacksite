@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Страница не найдена — StarStack</title>
+  <title data-i18n="meta.404_title">Страница не найдена — StarStack</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     main { min-height: 60vh; display: grid; place-items: center; text-align: center; padding: 40px 20px; }
@@ -12,18 +12,24 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="./">StarStack</a>
+    <a class="logo" href="./" data-i18n="common.brand">StarStack</a>
+    <div class="header-actions">
+      <select id="langSelect404" class="lang-select" aria-label="Language">
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
   </header>
   <main>
     <div>
       <p class="code">404</p>
-      <h1>Такой страницы нет</h1>
-      <p>Возможно, ссылка устарела или была удалена.</p>
-      <p><a class="cta" href="./">Вернуться на главную</a></p>
+      <h1 data-i18n="notfound.title">Такой страницы нет</h1>
+      <p data-i18n="notfound.body">Возможно, ссылка устарела или была удалена.</p>
+      <p><a class="cta" href="./" data-i18n="notfound.back">Вернуться на главную</a></p>
     </div>
   </main>
   <footer class="site-footer">
-    <p>© <span id="year"></span> StarStack</p>
+    <p>© <span id="year"></span> <span data-i18n="common.brand">StarStack</span></p>
   </footer>
   <script src="script.js"></script>
 </body>
