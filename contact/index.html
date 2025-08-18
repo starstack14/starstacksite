@@ -22,7 +22,6 @@
   <meta name="twitter:image" content="https://starstackcp.online/og.png">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
-  <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -45,6 +44,7 @@
       <form action="https://api.web3forms.com/submit" method="POST">
         <div style="display:grid;gap:12px;max-width:640px">
           <input type="hidden" name="access_key" value="ddd2f93a-2e9c-418b-858b-7aee96d12a90" />
+          <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" />
           <label>
             Имя
             <input name="name" type="text" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;" />
@@ -57,7 +57,7 @@
             Сообщение
             <textarea name="message" rows="5" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;"></textarea>
           </label>
-          <div class="h-captcha" data-sitekey="ccc45cf6-43e0-4330-b9b6-7aa8978e3374"></div>
+          
           <input type="hidden" name="_redirect" value="https://starstackcp.online/success" />
           <button type="submit" class="cta">Отправить</button>
         </div>
