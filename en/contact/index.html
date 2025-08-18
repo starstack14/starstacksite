@@ -22,7 +22,7 @@
   <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/styles.css" />
-  <script defer src="https://challenges.cloudflare.com/turnstile/v0/api.js" ></script>
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -56,7 +56,7 @@
             Message
             <textarea name="message" rows="5" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;"></textarea>
           </label>
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAABs1haoIwbIV1nfv" data-theme="auto"></div>
+          <div class="h-captcha" data-sitekey="ccc45cf6-43e0-4330-b9b6-7aa8978e3374"></div>
           <input type="hidden" name="_redirect" value="https://starstackcp.online/success" />
           <button type="submit" class="cta">Send</button>
         </div>
