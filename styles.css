@@ -209,6 +209,7 @@ body {
 .nav-menu { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; }
 .nav-menu a { color: var(--text); text-decoration: none; padding: 6px 10px; border-radius: 8px; }
 .nav-menu a:hover { background: var(--card); }
+.nav-menu a[aria-current="page"] { background: var(--card); color: var(--primary); box-shadow: inset 0 0 0 1px var(--border); }
 
 .header-actions { display: flex; align-items: center; gap: 8px; }
 .nav-toggle { display: none; border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 10px; }
@@ -269,3 +270,8 @@ body {
 
 /* Доступность */
 :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 8px; }
+
+/* Хлебные крошки */
+.breadcrumbs { padding: 8px 20px; color: var(--muted); font-size: 14px; }
+.breadcrumbs a { color: var(--muted); }
+.breadcrumbs .sep { margin: 0 6px; opacity: .6; }
