@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111827"/>
+  <g fill="#fff" font-family="Segoe UI, Roboto, Arial, sans-serif">
+    <text x="80" y="240" font-size="64" opacity=".9">StarStack</text>
+    <text x="80" y="340" font-size="100" font-weight="800">Projects</text>
+    <text x="80" y="420" font-size="40" opacity=".85">Personal open source demos</text>
+  </g>
+</svg>
+

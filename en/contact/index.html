@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StarStack — Contact</title>
+  <meta name="description" content="Contact StarStack via the issue form." />
+  <link rel="canonical" href="https://starstackcp.online/en/contact" />
+  <link rel="alternate" hreflang="en" href="https://starstackcp.online/en/contact" />
+  <link rel="alternate" hreflang="ru" href="https://starstackcp.online/contact" />
+  <link rel="alternate" hreflang="x-default" href="https://starstackcp.online/en/contact" />
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://starstackcp.online/en/contact">
+  <meta property="og:title" content="StarStack — Contact">
+  <meta property="og:description" content="Use the contact form to reach out." />
+  <meta property="og:image" content="https://starstackcp.online/og-contact.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StarStack — Contact">
+  <meta name="twitter:description" content="Use the contact form to reach out.">
+  <meta name="twitter:image" content="https://starstackcp.online/og-contact.svg">
+  <meta name="theme-color" content="#ef4444" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="https://challenges.cloudflare.com/turnstile/v0/api.js" ></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="/en/home">StarStack</a>
+    <nav id="nav" class="nav" aria-label="Main navigation">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">≡</button>
+      <ul id="navMenu" class="nav-menu">
+        <li><a href="/en/home">Home</a></li>
+        <li><a href="/en/about">About</a></li>
+        <li><a href="/en/projects">Projects</a></li>
+        <li><a href="/en/contact" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="/en/home">Home</a><span class="sep">/</span><span>Contact</span></nav>
+  <main>
+    <section class="section">
+      <h2>Contact</h2>
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <div style="display:grid;gap:12px;max-width:640px">
+          <input type="hidden" name="access_key" value="ddd2f93a-2e9c-418b-858b-7aee96d12a90" />
+          <label>
+            Name
+            <input name="name" type="text" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;" />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;" />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;"></textarea>
+          </label>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAABs1haoIwbIV1nfv" data-theme="auto"></div>
+          <input type="hidden" name="_redirect" value="https://starstackcp.online/success" />
+          <button type="submit" class="cta">Send</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> StarStack. Made with love.</p>
+  </footer>
+  <script src="/script.js"></script>
+</body>
+</html>
+
