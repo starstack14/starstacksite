@@ -8,6 +8,8 @@
   <title data-i18n="contact.title">StarStack — Контакты</title>
   <meta name="description" content="Связаться со StarStack через форму обращения в репозитории." />
   <link rel="canonical" href="https://starstackcp.online/contact" />
+  <link rel="preconnect" href="https://api.github.com" crossorigin>
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <link rel="alternate" hreflang="ru" href="https://starstackcp.online/contact" />
   <link rel="alternate" hreflang="en" href="https://starstackcp.online/en/contact" />
   <link rel="alternate" hreflang="x-default" href="https://starstackcp.online/contact" />
@@ -68,7 +70,17 @@
   <footer class="site-footer">
     <p>© <span id="year"></span> <span data-i18n="common.brand">StarStack</span>. <span data-i18n="footer.made">Сделано с любовью.</span></p>
   </footer>
-  <script src="/script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"name": "Главная","item": "https://starstackcp.online/home"},
+      {"@type": "ListItem","position": 2,"name": "Контакты","item": "https://starstackcp.online/contact"}
+    ]
+  }
+  </script>
+  <script defer src="/script.js"></script>
 </body>
 </html>
 

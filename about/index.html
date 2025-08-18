@@ -8,6 +8,8 @@
   <title data-i18n="meta.title">StarStack — О сайте</title>
   <meta name="description" content="О сайте StarStack: простой статичный шаблон на GitHub Pages." />
   <link rel="canonical" href="https://starstackcp.online/about" />
+  <link rel="preconnect" href="https://api.github.com" crossorigin>
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <link rel="alternate" hreflang="ru" href="https://starstackcp.online/about" />
   <link rel="alternate" hreflang="en" href="https://starstackcp.online/en/about" />
   <link rel="alternate" hreflang="x-default" href="https://starstackcp.online/about" />
@@ -46,7 +48,17 @@
   <footer class="site-footer">
     <p>© <span id="year"></span> <span data-i18n="common.brand">StarStack</span>. <span data-i18n="footer.made">Сделано с любовью.</span></p>
   </footer>
-  <script src="/script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"name": "Главная","item": "https://starstackcp.online/home"},
+      {"@type": "ListItem","position": 2,"name": "О сайте","item": "https://starstackcp.online/about"}
+    ]
+  }
+  </script>
+  <script defer src="/script.js"></script>
 </body>
 </html>
 

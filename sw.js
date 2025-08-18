@@ -1,7 +1,11 @@
-const CACHE_NAME = 'starstack-cache-v1';
+const CACHE_NAME = 'starstack-cache-v2';
 const ASSETS = [
   '/',
   '/home',
+  '/about',
+  '/projects',
+  '/contact',
+  '/offline.html',
   '/styles.css',
   '/script.js',
   '/favicon.svg'
@@ -28,7 +32,7 @@ self.addEventListener('fetch', (event) => {
         const copy = res.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
         return res;
-      }).catch(() => caches.match(req))
+      }).catch(() => caches.match(req).then((r) => r || caches.match('/offline.html')))
     );
   } else {
     event.respondWith(
