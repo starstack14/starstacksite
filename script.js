@@ -154,6 +154,8 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 })();
 
+// (Removed) SPA router: switched to real multi-page navigation (/home, /about, /projects, /contact)
+
 (function () {
   const root = document.documentElement;
   const themeToggle = document.getElementById('themeToggle');
