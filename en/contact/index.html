@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';base-uri 'self';frame-ancestors 'none';form-action 'self' https://api.web3forms.com;connect-src 'self' https://api.github.com;img-src 'self' https: data:;style-src 'self' 'unsafe-inline';script-src 'self' 'unsafe-inline';font-src 'self' data:;manifest-src 'self';worker-src 'self';frame-src 'none';upgrade-insecure-requests;block-all-mixed-content">
+  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#ef4444">
+  <link rel="manifest" href="/manifest.webmanifest">
   <title>StarStack — Contact</title>
-  <meta name="description" content="Contact StarStack via the issue form." />
-  <link rel="canonical" href="https://starstackcp.online/en/contact" />
-  <link rel="alternate" hreflang="en" href="https://starstackcp.online/en/contact" />
-  <link rel="alternate" hreflang="ru" href="https://starstackcp.online/contact" />
-  <link rel="alternate" hreflang="x-default" href="https://starstackcp.online/en/contact" />
+  <meta name="description" content="Contact StarStack via the issue form.">
+  <link rel="canonical" href="https://starstackcp.online/en/contact">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="alternate" hreflang="en" href="https://starstackcp.online/en/contact">
+  <link rel="alternate" hreflang="ru" href="https://starstackcp.online/contact">
+  <link rel="alternate" hreflang="x-default" href="https://starstackcp.online/en/contact">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://starstackcp.online/en/contact">
   <meta property="og:title" content="StarStack — Contact">
   <meta property="og:description" content="Use the contact form to reach out." />
-  <meta property="og:image" content="https://starstackcp.online/og-contact.svg">
+  <meta property="og:image" content="https://starstackcp.online/favicon.svg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="StarStack — Contact">
   <meta name="twitter:description" content="Use the contact form to reach out.">
-  <meta name="twitter:image" content="https://starstackcp.online/og-contact.svg">
+  <meta name="twitter:image" content="https://starstackcp.online/favicon.svg">
   <meta name="theme-color" content="#ef4444" />
   <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="preconnect" href="https://api.github.com" crossorigin>
+  
   <link rel="apple-touch-icon" href="/favicon.svg" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preload" href="/styles.css" as="style">
+  <link rel="preload" href="/script.js" as="script">
+  <link rel="preload" href="/favicon.svg" as="image">
+  <link rel="dns-prefetch" href="//api.github.com">
+  <link rel="dns-prefetch" href="//api.web3forms.com">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <header class="site-header">
@@ -59,7 +70,7 @@
             <textarea name="message" rows="5" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;"></textarea>
           </label>
           
-          <input type="hidden" name="_redirect" value="https://starstackcp.online/success" />
+          <input type="hidden" name="_redirect" value="https://starstackcp.online/en/contact" />
           <button type="submit" class="cta">Send</button>
         </div>
       </form>
@@ -68,16 +79,7 @@
   <footer class="site-footer">
     <p>© <span id="year"></span> StarStack. Made with love.</p>
   </footer>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem","position": 1,"name": "Home","item": "https://starstackcp.online/en/home"},
-      {"@type": "ListItem","position": 2,"name": "Contact","item": "https://starstackcp.online/en/contact"}
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://starstackcp.online/en/home"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://starstackcp.online/en/contact"}]}</script>
   <script defer src="/script.js"></script>
 </body>
 </html>
