@@ -53,19 +53,45 @@
   <main>
     <section class="section">
       <h2>Projects</h2>
-      <div class="cards">
-        <article class="card" id="project-mlf">
-          <h3>
-            <a id="mlfTitle" href="https://github.com/starstack14/Multi-LauncherFactorio" target="_blank" rel="noopener">Multi-Launcher Factorio</a>
-          </h3>
-          <p id="mlfDesc">Factorio launcher. Description is fetched from GitHub.</p>
-          <div class="meta" style="display:flex;gap:12px;color:var(--muted);">
-            <span id="mlfStars">★ 0</span>
-            <span id="mlfRelease">Latest release: —</span>
+      
+      <div class="project-filters" role="group" aria-label="Project filters">
+        <button class="filter-btn active" data-filter="all" type="button">All</button>
+        <button class="filter-btn" data-filter="games" type="button">Games</button>
+        <button class="filter-btn" data-filter="tools" type="button">Tools</button>
+        <button class="filter-btn" data-filter="web" type="button">Web</button>
+        <button class="filter-btn" data-filter="libraries" type="button">Libraries</button>
+      </div>
+      
+      <div class="project-search">
+        <input type="text" id="projectSearch" placeholder="Search projects..." class="search-input" aria-label="Search projects">
+        <span class="search-icon">🔍</span>
+      </div>
+      
+      <div class="cards" id="projectsGrid">
+        <article class="card project-item" id="project-mlf" data-tags="games,tools" data-title="Multi-Launcher Factorio" data-desc="Factorio launcher">
+          <div class="mlf-skeleton" style="display: block;">
+            <div class="skeleton skeleton-title"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text" style="width: 60%"></div>
+            <div class="skeleton skeleton-text" style="width: 80%"></div>
           </div>
-          <div class="actions" style="margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;">
-            <a class="link" id="mlfGithub" href="https://github.com/starstack14/Multi-LauncherFactorio" target="_blank" rel="noopener">Open on GitHub →</a>
-            <a class="link" id="mlfDownload" href="https://github.com/starstack14/Multi-LauncherFactorio/releases/latest" target="_blank" rel="noopener">Download latest →</a>
+          <div class="mlf-content" style="display: none;">
+            <h3>
+              <a id="mlfTitle" href="https://github.com/starstack14/Multi-LauncherFactorio" target="_blank" rel="noopener">Multi-Launcher Factorio</a>
+            </h3>
+            <div class="project-tags">
+              <span class="tag">Games</span>
+              <span class="tag">Tools</span>
+            </div>
+            <p id="mlfDesc">Factorio launcher. Description is fetched from GitHub.</p>
+            <div class="meta" style="display:flex;gap:12px;color:var(--muted);">
+              <span id="mlfStars">★ 0</span>
+              <span id="mlfRelease">Latest release: —</span>
+            </div>
+            <div class="actions" style="margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;">
+              <a class="link" id="mlfGithub" href="https://github.com/starstack14/Multi-LauncherFactorio" target="_blank" rel="noopener">Open on GitHub →</a>
+              <a class="link" id="mlfDownload" href="https://github.com/starstack14/Multi-LauncherFactorio/releases/latest" target="_blank" rel="noopener">Download latest →</a>
+            </div>
           </div>
         </article>
       </div>
