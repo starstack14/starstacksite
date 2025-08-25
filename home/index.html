@@ -3,26 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ef4444" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+    }
+  </script>
   <title data-i18n="meta.title">StarStack — Небольшой сайт</title>
-  <meta name="description" content="Минимальный статичный сайт для GitHub Pages" />
-  <meta name="theme-color" content="#0e1016" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-
-  <!-- Open Graph / Twitter -->
+  <meta name="description" content="Привет! Это StarStack — минимальный сайт на GitHub Pages." />
+  <link rel="canonical" href="https://starstackcp.online/home" />
+  <link rel="preconnect" href="https://api.github.com" crossorigin>
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="alternate" hreflang="ru" href="https://starstackcp.online/home" />
+  <link rel="alternate" hreflang="en" href="https://starstackcp.online/en/home" />
+  <link rel="alternate" hreflang="x-default" href="https://starstackcp.online/home" />
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://starstackcp.online/">
+  <meta property="og:url" content="https://starstackcp.online/home">
   <meta property="og:title" content="StarStack — Небольшой сайт">
-  <meta property="og:description" content="Минимальный статичный сайт для GitHub Pages">
+  <meta property="og:description" content="Минимальный сайт, который легко разместить на GitHub Pages.">
   <meta property="og:image" content="https://starstackcp.online/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="StarStack — Небольшой сайт">
-  <meta name="twitter:description" content="Минимальный статичный сайт для GitHub Pages">
+  <meta name="twitter:description" content="Минимальный сайт, который легко разместить на GitHub Pages.">
   <meta name="twitter:image" content="https://starstackcp.online/og.png">
-
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="alternate icon" href="/favicon.ico" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
   <header class="site-header">
@@ -30,33 +36,33 @@
     <nav id="nav" class="nav" aria-label="Главная навигация">
       <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Открыть меню">≡</button>
       <ul id="navMenu" class="nav-menu">
-        <li><a href="/home" data-i18n="header.nav.home">Главная</a></li>
+        <li><a href="/home" aria-current="page" data-i18n="header.nav.home">Главная</a></li>
         <li><a href="/about" data-i18n="header.nav.about">О сайте</a></li>
         <li><a href="/projects" data-i18n="header.nav.projects">Проекты</a></li>
         <li><a href="/contact" data-i18n="header.nav.contact">Контакты</a></li>
       </ul>
     </nav>
-    <div class="header-actions">
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button id="langRu" class="lang-btn" aria-pressed="true" type="button">RU</button>
-        <button id="langEn" class="lang-btn" aria-pressed="false" type="button">EN</button>
-      </div>
-      <button id="themeToggle" class="theme-toggle" title="Переключить тему" aria-pressed="false">🌓</button>
-    </div>
   </header>
-
   <main>
-    <section id="home" class="hero">
+    <section class="hero">
       <h1 data-i18n="hero.title">Привет! Это StarStack</h1>
       <p data-i18n="hero.subtitle">Минимальный сайт, который легко разместить на GitHub Pages.</p>
       <a class="cta" href="/projects" data-i18n="hero.cta">Смотреть проекты</a>
     </section>
   </main>
-
   <footer class="site-footer">
     <p>© <span id="year"></span> <span data-i18n="common.brand">StarStack</span>. <span data-i18n="footer.made">Сделано с любовью.</span></p>
   </footer>
-
-  <script src="script.js"></script>
+  <script defer src="/script.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "StarStack",
+    "url": "https://starstackcp.online/",
+    "logo": "https://starstackcp.online/favicon.svg"
+  }
+  </script>
 </body>
 </html>
+
